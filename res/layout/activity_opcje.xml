@@ -1,0 +1,89 @@
+<RelativeLayout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/tlo"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.example.arkanoid10.OpcjeActivity" >
+
+    <TextView
+        android:id="@+id/textViewPoziom"
+        style="@style/PoziomTrudnosci"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:text="@string/title_poziom" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/textViewPoziom"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp" >
+
+        <RadioButton
+            android:id="@+id/radioLatwy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:layout_marginTop="20dp"
+            android:text="@string/radio_latwy" 
+            android:onClick="ustawLatwyPoziom"
+            style="@style/RadioButtons" />
+
+        <RadioButton
+            android:id="@+id/radioSredni"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/radio_sredni" 
+            android:onClick="ustawSredniPoziom"
+            style="@style/RadioButtons" />
+
+        <RadioButton
+            android:id="@+id/radioTrudny"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/radio_trudny"
+            android:onClick="ustawTrudnyPoziom" 
+            style="@style/RadioButtons" />
+    </RadioGroup>
+    
+        <CheckBox
+            android:id="@+id/checkBoxMuzyka"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
+            android:layout_below="@+id/radioGroup1"
+            android:layout_centerHorizontal="true"
+            android:text="@string/checkBox_muzyka"
+            style="@style/RadioButtons" />
+    
+    <Button 
+        android:id="@+id/button_powrot"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/checkBoxMuzyka"
+        android:background="@color/Przycisk"
+        android:text="@string/button_powrot"
+        android:onClick="wrocDoMenuGlownego"
+        style="@style/Buttons"/>
+    
+    <TextView 
+        android:id="@+id/tView1"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/button_powrot"
+        />
+
+</RelativeLayout>
