@@ -1,14 +1,16 @@
 package com.example.arkanoid;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Random;
+
+import android.util.Log;
 
 public class Klocek extends ObiektGry{
 	
 	private float lewyX, prawyX, gornyY, dolnyY;	
 	private float[] kolor;
+	private float obszarKolizyjny;					//jak daleko pilka moze przekroczyc krawedz klocka
 	
 	public static List<Klocek> klocki = new ArrayList<Klocek>();
 	
@@ -29,6 +31,8 @@ public class Klocek extends ObiektGry{
 		kolor[1] = odcienKoloru < 0.2f ? odcienKoloru + 0.5f : odcienKoloru;
 		odcienKoloru = (float)Math.random();
 		kolor[2] = odcienKoloru < 0.2f ? odcienKoloru + 0.5f : odcienKoloru;
+		
+		obszarKolizyjny = szer / 8f;
 	}
 	
 	public boolean wykryjKolizje(Pilka pilka)
@@ -38,11 +42,10 @@ public class Klocek extends ObiektGry{
 			pilka.getLewyX() <= prawyX &&
 			pilka.getGornyY() >= dolnyY &&
 			pilka.getDolnyY() <= gornyY )
-		{
+		{			
 			MainActivity.dzwieki.get("klocek").start();
-			
 			//gdy kolizja jest z prawej lub lewej strony to zmieniam kierunek w osi X a gdy z gory lub z dolu to w osi Y
-			if((pilka.getPrawyX() - 5.0f) <= lewyX || (pilka.getLewyX() + 5.0f) >= prawyX )
+			if((pilka.getPrawyX() - obszarKolizyjny) <= lewyX || (pilka.getLewyX() + obszarKolizyjny) >= prawyX )
 				pilka.setKierunekX(pilka.getKierunekX() * (-1));
 			else
 				pilka.setKierunekY(pilka.getKierunekY() * (-1));
@@ -54,8 +57,7 @@ public class Klocek extends ObiektGry{
 	
 	public static void inicjalizujKlocki(int idTekstury)
 	{
-		int wiersze = new Random().nextInt(4) + 1;		//od 1 do 4
-				
+		int wiersze = new Random().nextInt(4) + 1;		//od 1 do 4	
 		float szerKlocka = MyGLRenderer.rozdzielczoscX * 0.05f;
 		float wysKlocka = MyGLRenderer.rozdzielczoscY * 0.05f;
 		

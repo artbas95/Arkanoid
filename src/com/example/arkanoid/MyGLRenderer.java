@@ -74,7 +74,7 @@ public class MyGLRenderer implements GLSurfaceView.Renderer{
 		
 
 		
-		/**POCZ�TEK �ADOWANIA TEKSTUR**/
+		/**POCZĄTEK ŁADOWANIA TEKSTUR**/
 		gl.glGenTextures(4, texIDs, 0);					//tworze identyfikatory tekstur
 		
 		zaladujTeksture(texIDs[0], R.drawable.tlo, gl);

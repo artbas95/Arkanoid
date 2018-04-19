@@ -32,7 +32,7 @@ public class KoniecActivity extends Activity {
 		
 		if(wygrana){
 			tv1.setText("BRAWO!");
-			tv2.setText("Wygra�e�");
+			tv2.setText("Wygrałeś");
 			mp = new MediaPlayer().create(this, R.raw.winsound);
 			mp.start();
 		}
@@ -40,7 +40,7 @@ public class KoniecActivity extends Activity {
 			mp = new MediaPlayer().create(this, R.raw.failsound);
 			mp.start();
 			tv1.setText("Niestety");
-			tv2.setText("przegra�e�");
+			tv2.setText("przegrałeś");
 		}
 	}
 	
